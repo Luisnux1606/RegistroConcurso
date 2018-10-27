@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">El equipo podria ser una o dos personas</li>
+
+  </ol>
+</nav>
+
+    <form  id="createPersona" action="{% url 'createPersona' %}"  method="post">
+         {% csrf_token %}
+            <div class="border-bottom">
+                 <div class="form-group row">
+                    <label for="id_cedula" class="col-sm-2 col-form-label" ><b>Nro. de cedula de la persona que registra:</b></label>
+                     <div class="col-sm-10">
+                         <input id="id_cedula" type="text" class="form-control" name="cedula" maxlength="100" placeholder="Ingrese la cedula del representante del equipo" required>
+                     </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <label for="id_nombres" class="col-sm-2 col-form-label" ><b>Nombre del equipo:</b></label>
+                     <div class="col-sm-10">
+                         <input id="id_nombres" type="text" class="form-control" name="nombres" maxlength="100" placeholder="Ingrese el nombre del equipo" >
+                     </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id_apellidos" class="col-sm-2 col-form-label" ><b>Nombres y apellidos de los concursantes:</b></label>
+                     <div class="col-sm-10">
+                         <input id="id_apellidos" type="text" class="form-control" name="apellidos" maxlength="100" placeholder="Ingrese el dos nombres y dos apellidos de cada uno. Ejm: Luis Enrique Gonzalez Delgado y Bertha Katerina Capelo Tacuri" required>
+                     </div>
+                </div>
+
+                 <div class="form-group row">
+                    <label for="id_nro_fono" class="col-sm-2 col-form-label" ><b>Nro de telefono del representante:</b></label>
+                     <div class="col-sm-10">
+                         <input id="id_nro_fono" type="text" class="form-control" name="nro_fono" maxlength="100" placeholder="Ingrese el numero de telefono" required>
+                     </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id_carrera" class="col-sm-2 col-form-label" ><b>Carrera que estudia:</b></label>
+                     <div class="col-sm-10">
+                         <select class="custom-select" id="id_carrera" name="carrera" required>
+                            <option selected >Eliga la carrera...</option>
+                            <option value="Computacion">Computacion</option>
+                            <option value="Sistemas">Sistemas</option>
+                            <option value="Electricidad">Electricidad</option>
+                            <option value="Electronica">Electronica</option>
+                            <option value="Automotriz">Automotriz</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Mecatronica">Mecatronica</option>
+                            <option value="Mecanica">Mecanica</option>
+                            <option value="Telecomunicaciones">Telecomunicaciones</option>
+                            <option value="Biotecnologia">Biotecnologia</option>
+                            <option value="Otra">Otra</option>
+                         </select>
+                     </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="id_edad" class="col-sm-2 col-form-label" ><b>Ciclo mas alto entre el o los concursantes:</b></label>
+                     <div class="col-sm-10">
+                         <select class="custom-select" id="id_edad" name="edad" required>
+                            <option selected >Eliga el ciclo... </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="1">4</option>
+                            <option value="2">5</option>
+                            <option value="3">6</option>
+                            <option value="1">7</option>
+                            <option value="2">8</option>
+                            <option value="3">9</option>
+                            <option value="3">10</option>
+                         </select>
+                     </div>
+                </div>
+
+
+                 <div class="form-group row">
+                    <label for="id_mail" class="col-sm-2 col-form-label" ><b>Correo electronico del representante:</b></label>
+                     <div class="col-sm-10">
+                         <input id="id_mail" type="email" class="form-control" name="mail" maxlength="100" placeholder="Ejm: lgonzalez@ups.edu.ec" required>
+                     </div>
+                </div>
+
+            </div>
+        <div align="center">
+            <input id="createPersonas" align="center" type="submit" value="Guardar"  class="btn btn-outline-success" form="createPersona">
+        </div>
+
+    </form>
+
+</html>

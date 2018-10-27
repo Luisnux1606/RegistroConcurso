@@ -1,0 +1,70 @@
+{% extends 'registro/base.html' %}
+{% block main_content %}
+ {% include "registro/bar.html" %}
+{% load staticfiles %}
+
+    <br><br><br>
+    <div align="center">
+        <img src="{% static 'assets/logoSL.jpg'%}" align="center"  height="72" width="100">
+        <img src="{% static 'assets/logoRA.jpg'%}" align="center"  height="72" width="80">
+    </div>
+
+    <div class="container">
+        <p>
+            Gracias, le haremos llegar en su correo el reglamento del concurso.
+            <a href="{%url 'home'%}"> Regresar</a>
+        </p>
+        <div class="row justify-content-md-left">
+        <div class="form-group">
+                <label for="myInputPersona">Buscar equipo:</label>
+                <input type="text" class="form-control" id="myInputPersona" placeholder="Buscar equipo">
+            </div>
+        </div>
+
+            <div style=" height:400px; width:100%; overflow:hidden; overflow-y:scroll;overflow-x:scroll;">
+                <table class="table table-sm" >
+                  <thead>
+                    <tr>
+                      <th scope="col">NRO.</th>
+                      <th scope="col">CEDULA</th>
+                      <th scope="col">NOMBRES</th>
+                      <th scope="col">CARRERA</th>
+                      <th scope="col">NRO. FONO</th>
+                      <th scope="col">MAIL</th>
+
+                    </tr>
+                  </thead>
+                 <tbody id="myTablePersona">
+                 <h3 align="center">Concursantes</h3>
+               {% for pers in personas %}
+                   <tr>
+                       <td>{{pers.id|default_if_none:"&nbsp;"}}</td>
+                       <td>{{pers.cedula|default_if_none:"&nbsp;"}}</td>
+                       <td> <p class="text-uppercase">{{pers.apellidos|default_if_none:"&nbsp;"}} </p></td>
+                       <td><p class="text-uppercase">{{pers.carrera|default_if_none:"&nbsp;"}}</p></td>
+                       <td>{{pers.nro_fono|default_if_none:"&nbsp;"}}</td>
+                        <td>{{pers.mail|default_if_none:"&nbsp;"}}</td>
+
+                    </tr>
+                 {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $("#myInputPersona").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTablePersona tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+
+
+
+{% include "registro/foother.html" %}
+{% endblock %}

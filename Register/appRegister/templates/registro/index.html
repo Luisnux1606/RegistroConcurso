@@ -1,0 +1,27 @@
+{% extends 'registro/base.html' %}
+{% block main_content %}
+ {% include "registro/bar.html" %}
+{% load static %}
+<br><br><br>
+    <div align="center">
+
+        <h2 ALIGN="center"> REGISTRO DE DATOS  </h2>
+        <img src="{% static 'assets/logoSL.jpg'%}" align="center"  height="72" width="100">
+        <img src="{% static 'assets/logoRA.jpg'%}" align="center"  height="72" width="80">
+    </div>
+
+
+
+
+  <div class="card-body">
+    {% include "registro/persona/create.html" %}
+  </div>
+
+
+<script type="text/javascript">
+
+</script>
+
+
+{% include "registro/foother.html" %}
+{% endblock %}
